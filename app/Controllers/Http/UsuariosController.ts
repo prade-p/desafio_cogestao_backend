@@ -12,8 +12,6 @@ export default class UsuariosController {
 
 public async store({ request }: HttpContextContract) {
         const validateData = await request.validate(UsuarioValidatorStore)
-       /*  const nome = request.input('nome')
-        const email = request.input('email') */
         const { nome, email } = validateData
 
         const usuario = await Usuario.create({
