@@ -3,6 +3,7 @@ import Lembrete from 'App/Models/Lembrete'
 import { limpaCamposNulosDeObjeto } from 'App/Utils/Utils'
 import { LembreteValidatorStore, LembreteValidatorUpdate } from 'App/Validators/LembreteValidator'
 
+
 export default class LembretesController {
     public async index() {
         const lembrete = await Lembrete.all()
@@ -10,14 +11,24 @@ export default class LembretesController {
         return lembrete
     }
 
+  public async indexByUsuario({ request }: HttpContextContract) {
+
+    const id = request.param('id')
+    if (!id) return
+
+    const lembrete = await Lembrete.findBy("id_usuario", id)
+      return lembrete
+  }
+
 public async store({ request }: HttpContextContract) {
         const validateData = await request.validate(LembreteValidatorStore)
-    
-        const { titulo, descricao } = validateData
+        
+        const { titulo, descricao, id_usuario } = validateData
     
         const lembreteModel = await Lembrete.create({
           titulo,
           descricao,
+          id_usuario
         })
         return lembreteModel
       }

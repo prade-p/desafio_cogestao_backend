@@ -30,8 +30,11 @@ Route.post('/usuarios', 'UsuariosController.store')
 Route.put('/usuarios/:id', 'UsuariosController.update')
 Route.delete('/usuarios/:id', 'UsuariosController.destroy')
 
+Route.post('/login', 'SessoesController.login')
+
 //Lembretes
 Route.get('/lembretes', 'LembretesController.index')
+Route.get('/lembretesusuario/:id', 'LembretesController.indexByUsuario')
 Route.post('/lembretes', 'LembretesController.store')
 Route.put('/lembretes/:id', 'LembretesController.update')
 Route.delete('/lembretes/:id', 'LembretesController.destroy')

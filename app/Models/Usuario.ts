@@ -1,5 +1,3 @@
-import Hash from '@ioc:Adonis/Core/Hash'
-import { beforeSave} from '@ioc:Adonis/Lucid/Orm'
 import { DateTime } from 'luxon'
 import { BaseModel, column, beforeCreate, hasMany, HasMany } from '@ioc:Adonis/Lucid/Orm'
 import { v4 as uuid } from 'uuid'
@@ -37,11 +35,6 @@ export default class Usuario extends BaseModel {
   public lembrete: HasMany<typeof Lembrete>
 
 
-@beforeSave()
-  public static async hashPassword (usuario: Usuario) {
-    if (usuario.$dirty.email) {
-      usuario.email = await Hash.make(usuario.email)
-    }
-  }
+
 
 }

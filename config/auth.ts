@@ -65,7 +65,7 @@ const authConfig: AuthConfig = {
         | Name of the driver
         |
         */
-        driver: 'database',
+        driver: 'lucid',
 
         /*
         |--------------------------------------------------------------------------
