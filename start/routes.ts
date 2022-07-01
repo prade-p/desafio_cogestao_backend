@@ -30,6 +30,7 @@ Route.post('/usuarios', 'UsuariosController.store')
 Route.put('/usuarios/:id', 'UsuariosController.update')
 Route.delete('/usuarios/:id', 'UsuariosController.destroy')
 
+//Login
 Route.post('/login', 'SessoesController.login')
 
 //Lembretes
